@@ -1,17 +1,12 @@
 <?php
 
-namespace CoffeeCode\Cropper;
+namespace Toniette\Cropper;
 
 use Exception;
 use WebPConvert\Convert\Exceptions\ConversionFailedException;
 use WebPConvert\WebPConvert;
 
-/**
- * Class CoffeeCode Cropper
- *
- * @author Robson V. Leite <https://github.com/robsonvleite>
- * @package CoffeeCode\Cropper
- */
+
 class Cropper
 {
     /** @var string */
@@ -50,7 +45,7 @@ class Cropper
      * @param bool $webP
      * @throws Exception
      */
-    public function __construct(string $cachePath, int $quality = 75, int $compressor = 5, bool $webP = false)
+    public function __construct(string $cachePath, int $quality = 100, int $compressor = 5, bool $webP = false)
     {
         $this->cachePath = $cachePath;
         $this->quality = $quality;
@@ -112,8 +107,8 @@ class Cropper
 
     /**
      * @param string $name
-     * @param int $width
-     * @param int $height
+     * @param int|null $width
+     * @param int|null $height
      * @return string
      */
     protected function name(string $name, int $width = null, int $height = null): string
